@@ -146,17 +146,8 @@ class ResponsiveManager:
             except Exception:
                 pass
 
-  -------------------- SHARED WIDGETS --------------------
-def make_footer(parent, controller):
-    f = tk.Frame(parent, bg=parent['bg'])
-    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    lbl = tk.Label(f, text=f'EcoQuest Suite — Generated on {now}', bg=parent['bg'])
-    lbl.pack(side='right', padx=8, pady=8)
-    if hasattr(controller, 'resp'):
-        controller.resp.register(lbl, {'font_key': 'small', 'padx': 4, 'pady': 4})
-    return f
 
-  -------------------- MENU FRAME --------------------
+
 class MenuFrame(tk.Frame):
     def __init__(self, parent, controller):
         super().__init__(parent, bg=" e8f5e9")
@@ -212,8 +203,6 @@ class MenuFrame(tk.Frame):
         )
         g_label.pack(fill="x")
 
-        footer = make_footer(self, controller)
-        footer.grid(row=5, column=0, sticky="ew")
 
   -------------------- TRASH SORTER FRAME --------------------
 class TrashSorterFrame(tk.Frame):
